@@ -1,3 +1,4 @@
+import os
 import string
 
 def get_anagram(word: str, dictionary: list):
@@ -10,6 +11,9 @@ def get_anagram(word: str, dictionary: list):
     print(possible_words)
 
 if __name__ == '__main__':
-    with open('words_alpha.txt') as f:
+    script_dir = os.path.dirname(__file__)
+    dict_file_path = os.path.join(script_dir, "words_alpha.txt")
+    
+    with open(dict_file_path) as f:
         words_reference = f.read().splitlines()
     get_anagram('apple', words_reference)
